@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { MongooseError } from 'mongoose';
 import { VolcanoModel } from "../schemas/Volcano.schema";
 
 const volcanoesRouter = Router();
