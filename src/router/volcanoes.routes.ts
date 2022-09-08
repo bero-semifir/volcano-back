@@ -22,7 +22,9 @@ volcanoesRouter.post('/', async (req, res) => {
     const newVolcano = req.body;
     try {
         const resp = await VolcanoModel.create(newVolcano);
-        res.json(resp);
+        res
+            .status(201)
+            .json(resp);
     } catch (error) {
         res
             .status(400)
@@ -50,14 +52,14 @@ volcanoesRouter.put('/:id', async (req, res) => {
 })
 
 volcanoesRouter.delete('/:id', async (req, res) => {
-    try{
-        const resp = await VolcanoModel.findByIdAndDelete(req.params.id)
+    try {
+        const resp = await VolcanoModel.findByIdAndDelete(req.params.id);
         res.json(resp);
-    } catch(error) {
-        res.status(400).json({
+    } catch (error) {
+        res.json({
             status: 'error',
             message: error,
-        })
+        });
     }
 })
 
